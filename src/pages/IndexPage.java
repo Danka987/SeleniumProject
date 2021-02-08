@@ -12,7 +12,18 @@ public class IndexPage {
 	WebElement passwordField;
 	WebElement signIn;
 	WebElement assertThatUserIsLoggedIn;
+	WebElement assertThatUserIsNotLoggedIn;
+
 	
+	
+
+	
+	
+
+	public WebElement getAssertThatUserIsNotLoggedIn() {
+		return driver.findElement(By.className("alert-danger"));
+	}
+
 	public WebElement getAssertThatUserIsLoggedIn() {
 		return driver.findElement(By.className("account"));
 	}
@@ -47,12 +58,21 @@ public class IndexPage {
 	public void insertPassword(String password) {
 		this.getPasswordField().sendKeys(password);
 	}
-	
+	public void logIn(String email, String password) {
+		this.getSignInButton().click();
+		this.getEmailAddressField().sendKeys(email);
+		this.getPasswordField().sendKeys(password);
+		this.getSignIn().click();
+	}
 	public void SignIn() {
 		this.getSignIn().click();
 	}
 	
 	public void assertText() {
 		this.getAssertThatUserIsLoggedIn().getText();
+	}
+	
+	public void assertText2() {
+		this.getAssertThatUserIsNotLoggedIn().getText();
 	}
 }
