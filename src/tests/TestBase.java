@@ -8,6 +8,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import pages.IndexPage;
+import pages.MyAccountPage;
+import pages.MyAddressesPage;
 
 
 public class TestBase {
@@ -15,6 +17,8 @@ public class TestBase {
 	WebDriver driver;
 	ExcelReader excelReader;
 	IndexPage indexPage;
+	MyAccountPage myAccountPage;
+	MyAddressesPage myAddressesPage;
 
 	@BeforeClass
 	public void preKlase() throws IOException {
@@ -23,6 +27,8 @@ public class TestBase {
 		this.driver = new ChromeDriver();
 		excelReader = new ExcelReader("data/test plan.xlsx");
 		this.indexPage = new IndexPage(driver);
+		this.myAccountPage = new MyAccountPage(driver);
+		this.myAddressesPage = new MyAddressesPage(driver);
 		
 
 		driver.manage().window().maximize();
