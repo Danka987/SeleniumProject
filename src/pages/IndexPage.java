@@ -13,12 +13,21 @@ public class IndexPage {
 	WebElement signIn;
 	WebElement assertThatUserIsLoggedIn;
 	WebElement assertThatUserIsNotLoggedIn;
-
+    WebElement logOutButton;
+    WebElement assertForEmptyFields;
 	
 	
 
 	
 	
+
+	public WebElement getAssertForEmptyFields() {
+		return driver.findElement(By.xpath("//*[@id=\"center_column\"]/div[1]/ol/li"));
+	}
+
+	public WebElement getLogOutButton() {
+		return driver.findElement(By.className("logout"));
+	}
 
 	public WebElement getAssertThatUserIsNotLoggedIn() {
 		return driver.findElement(By.className("alert-danger"));
@@ -74,5 +83,9 @@ public class IndexPage {
 	
 	public void assertText2() {
 		this.getAssertThatUserIsNotLoggedIn().getText();
+	}
+	
+	public void logOut() {
+		this.getLogOutButton().click();
 	}
 }

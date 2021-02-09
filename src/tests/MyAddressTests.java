@@ -33,6 +33,10 @@ public class MyAddressTests extends TestBase {
 		Assert.assertEquals(textToAssert,UpdateText);
 		
 	}
+	@Test
+	public void addNewAddress ()throws InterruptedException {
+		
+	}
 	
 	@AfterMethod
 	public void afterTest() throws InterruptedException {

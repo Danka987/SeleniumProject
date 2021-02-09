@@ -52,17 +52,32 @@ public class LogInTests extends TestBase {
 	}
 	@Test
 	public void logInWithoutCredentials() throws InterruptedException {
-		String email = excelReader.getStringData("Log_In", 6, 4);
-		String password = String.valueOf(excelReader.getIntData("Log_In", 7, 5));
+	
 		String alertText = excelReader.getStringData("Log_In", 8, 6);
-		
-		indexPage.logIn(email, password);
+		indexPage.clickOnSignIn();
+		Thread.sleep(5000);
+		indexPage.getEmailAddressField().clear();
+		Thread.sleep(5000);
+		indexPage.getPasswordField().clear();
+		indexPage.SignIn();
 		Thread.sleep(2000);
-		String textForAssert = indexPage.getAssertThatUserIsNotLoggedIn().getText();
+		String textForAssert = indexPage.getAssertForEmptyFields().getText();
 		Assert.assertEquals(textForAssert, alertText);
 		Thread.sleep(2000);
 		
-		//proveriti za null
+		//proveriti za null 
+	}
+	@Test
+	public void logOut()throws InterruptedException {
+		String logOut = excelReader.getStringData("Log_out", 9, 4);
+		
+		logInRealCredenitals();
+		Thread.sleep(2000);
+		indexPage.logOut();
+		String textForAssert = indexPage.getSignInButton().getText();
+		Assert.assertEquals(textForAssert,logOut);
+		
+		
 	}
 
 	@AfterMethod
