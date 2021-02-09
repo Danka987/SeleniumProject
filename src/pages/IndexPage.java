@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -15,11 +16,13 @@ public class IndexPage {
 	WebElement assertThatUserIsNotLoggedIn;
     WebElement logOutButton;
     WebElement assertForEmptyFields;
-	
+    WebElement accountButton;
+		
 	
 
-	
-	
+	public WebElement getAccountButton() {
+		return driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a"));
+	}
 
 	public WebElement getAssertForEmptyFields() {
 		return driver.findElement(By.xpath("//*[@id=\"center_column\"]/div[1]/ol/li"));
@@ -33,9 +36,17 @@ public class IndexPage {
 		return driver.findElement(By.className("alert-danger"));
 	}
 
+	//public WebElement getAssertThatUserIsLoggedIn() {
+	//	return driver.findElement(By.className("account"));
+	//}
 	public WebElement getAssertThatUserIsLoggedIn() {
-		return driver.findElement(By.className("account"));
-	}
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+			return driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[2]/a"));
+		}
+	
+	
+	//*[@id="header"]/div[2]/div/div/nav/div[2]/a
 
 	public WebElement getEmailAddressField() {
 		return driver.findElement(By.id("email"));
@@ -87,5 +98,8 @@ public class IndexPage {
 	
 	public void logOut() {
 		this.getLogOutButton().click();
+	}
+	public void goToAccount() {
+		this.getAccountButton().click();
 	}
 }

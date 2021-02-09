@@ -19,7 +19,8 @@ public class LogInTests extends TestBase {
 		String email = excelReader.getStringData("Log_In", 6, 4);
 		String password = String.valueOf(excelReader.getIntData("Log_In", 7, 4));
 		String logIntext = excelReader.getStringData("Log_In", 8, 4);
-		indexPage.logIn(email, password);		
+		indexPage.logIn(email, password);	
+		Thread.sleep(2000);
 		String textForAssert = indexPage.getAssertThatUserIsLoggedIn().getText();
 		Assert.assertEquals(textForAssert, logIntext);
 		Thread.sleep(2000);
