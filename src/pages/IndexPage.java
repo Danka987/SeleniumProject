@@ -14,11 +14,9 @@ public class IndexPage {
 	WebElement signIn;
 	WebElement assertThatUserIsLoggedIn;
 	WebElement assertThatUserIsNotLoggedIn;
-    WebElement logOutButton;
-    WebElement assertForEmptyFields;
-    WebElement accountButton;
-		
-	
+	WebElement logOutButton;
+	WebElement assertForEmptyFields;
+	WebElement accountButton;
 
 	public WebElement getAccountButton() {
 		return driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a"));
@@ -36,17 +34,11 @@ public class IndexPage {
 		return driver.findElement(By.className("alert-danger"));
 	}
 
-	//public WebElement getAssertThatUserIsLoggedIn() {
-	//	return driver.findElement(By.className("account"));
-	//}
 	public WebElement getAssertThatUserIsLoggedIn() {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-			return driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[2]/a"));
-		}
-	
-	
-	//*[@id="header"]/div[2]/div/div/nav/div[2]/a
+		return driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[2]/a"));
+	}
 
 	public WebElement getEmailAddressField() {
 		return driver.findElement(By.id("email"));
@@ -67,38 +59,43 @@ public class IndexPage {
 	public IndexPage(WebDriver driver) {
 		this.driver = driver;
 	}
+
 	public void clickOnSignIn() {
 		this.getSignInButton().click();
 	}
+
 	public void insertEmail(String email) {
 		this.getEmailAddressField().clear();
 		this.getEmailAddressField().sendKeys(email);
 	}
-	
+
 	public void insertPassword(String password) {
 		this.getPasswordField().sendKeys(password);
 	}
+
 	public void logIn(String email, String password) {
 		this.getSignInButton().click();
 		this.getEmailAddressField().sendKeys(email);
 		this.getPasswordField().sendKeys(password);
 		this.getSignIn().click();
 	}
+
 	public void SignIn() {
 		this.getSignIn().click();
 	}
-	
+
 	public void assertText() {
 		this.getAssertThatUserIsLoggedIn().getText();
 	}
-	
+
 	public void assertText2() {
 		this.getAssertThatUserIsNotLoggedIn().getText();
 	}
-	
+
 	public void logOut() {
 		this.getLogOutButton().click();
 	}
+
 	public void goToAccount() {
 		this.getAccountButton().click();
 	}

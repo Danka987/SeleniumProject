@@ -38,4 +38,7 @@ public PersonalInfoPage(WebDriver driver) {
 public void clickOnSave() {
 	this.getSaveButton().click();
 }
+
+
+
 }

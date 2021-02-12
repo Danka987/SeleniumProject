@@ -22,6 +22,11 @@ public class MyAddressesPage {
 	WebElement aliasAddress;
 	WebElement forAssertNewAddres;
 	WebElement deleteAddressButton;
+	WebElement forAssertFirstAdress;
+
+	public WebElement getForAssertFirstAdress() {
+		return driver.findElement(By.xpath("//*[@id=\"center_column\"]/div[1]/div/div/ul/li[1]/h3"));
+	}
 
 	public WebElement getDeleteAddressButton() {
 		return driver.findElement(By.xpath("//*[@id=\"center_column\"]/div[1]/div/div[2]/ul/li[9]/a[2]"));
@@ -113,4 +118,21 @@ public class MyAddressesPage {
 		this.getDeleteAddressButton().click();
 	}
 
-}
+	//public void inputFields (String addressField, String cityField, String postcodeField,
+			//String phoneField, String aliasAddress) {
+		
+	//	this.getAddressField().sendKeys(addressField);
+		//this.getCityField().sendKeys(cityField);
+		//this.clickOnStateBar();
+		//this.chooseState();
+		//this.getPostcodeField().sendKeys(postcodeField);
+		//this.getPhoneField().sendKeys(phoneField);
+		//this.getAliasAddress().sendKeys(aliasAddress);
+		//this.saveUpdates();
+
+
+		
+	}
+
+
+
