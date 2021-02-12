@@ -118,17 +118,7 @@ public class MyAddressesPage {
 		this.getDeleteAddressButton().click();
 	}
 
-	//public void inputFields (String addressField, String cityField, String postcodeField,
-			//String phoneField, String aliasAddress) {
-		
-	//	this.getAddressField().sendKeys(addressField);
-		//this.getCityField().sendKeys(cityField);
-		//this.clickOnStateBar();
-		//this.chooseState();
-		//this.getPostcodeField().sendKeys(postcodeField);
-		//this.getPhoneField().sendKeys(phoneField);
-		//this.getAliasAddress().sendKeys(aliasAddress);
-		//this.saveUpdates();
+	
 
 
 		

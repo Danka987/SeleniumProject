@@ -65,8 +65,7 @@ public class LogInTests extends TestBase {
 		String textForAssert = indexPage.getAssertForEmptyFields().getText();
 		Assert.assertEquals(textForAssert, alertText);
 		Thread.sleep(2000);
-		
-		//proveriti za null 
+
 	}
 	@Test
 	public void logOut()throws InterruptedException {
@@ -76,8 +75,7 @@ public class LogInTests extends TestBase {
 		Thread.sleep(2000);
 		indexPage.logOut();
 		String textForAssert = indexPage.getSignInButton().getText();
-		Assert.assertEquals(textForAssert,logOut);
-		
+		Assert.assertEquals(textForAssert,logOut);		
 		
 	}
 
